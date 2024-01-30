@@ -54,7 +54,7 @@
             </body>
             
             <!--トラッキングカメラを装着-->
-            <camera name="camera_name" mode="track" pos="-0.2 0 1" euler="0 -20 -90" fovy="60"/> <!--トラッキングカメラを装着-->
+            <camera name="camera_name" mode="track" pos="0 0 1" euler="0 -5 -90" fovy="60"/> <!--トラッキングカメラを装着-->
         
         </body>
     </worldbody>
