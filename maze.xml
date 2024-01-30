@@ -1,0 +1,719 @@
+<mujoco model="maze">
+
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+        <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+    </asset>
+
+
+    <worldbody>
+        <!--ベース板-->
+        <body name="base_plate" pos="0.18 0.27 0.006">
+            <geom type="box" mass="0.1" size="0.321 0.321 0.006" rgba="0.2 0.2 0.2 1" friction="0.0 0.0 0.0"/>
+        </body>
+        <!--第1辺-->
+        <body name="wall1" pos="0 0 0.037"  euler="0 0 0">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <body name="wall2" pos="0.18 0 0.037" euler="0 0 0">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <body name="wall3" pos="0.36 0 0.037" euler="0 0 0">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--第2辺-->
+        <body name="wall4" pos="0.45 0.09 0.037"  euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <body name="wall5" pos="0.45 0.27 0.037" euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <body name="wall6" pos="0.45 0.45 0.037" euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--第3辺-->
+        <body name="wall7" pos="-0.090 0.09 0.037"  euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <body name="wall8" pos="-0.090 0.27 0.037" euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <body name="wall9" pos="-0.090 0.45 0.037" euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--第4辺-->
+        <body name="wall10" pos="0 0.54 0.037"  euler="0 0 0">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <body name="wall11" pos="0.18 0.54 0.037" euler="0 0 0">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <body name="wall12" pos="0.36 0.54 0.037" euler="0 0 0">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <body name="wall13" pos="0.09 0.09 0.037" euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <body name="wall14" pos="0.27 0.45 0.037" euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <body name="wall15" pos="0.18 0.36 0.037" euler="0 0 0">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <body name="wall16" pos="0.27 0.27 0.037" euler="0 0 90">
+            <!--<joint type="free" />-->
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.1" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.001" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!--柱1-->
+        <body pos="-0.09 0 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱2-->
+        <body pos="0.09 0 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱3-->
+        <body pos="0.27 0 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱4-->
+        <body pos="0.45 0 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+
+        <!--柱5-->
+        <body pos="-0.09 0.18 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱6-->
+        <body pos="0.09 0.18 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱7-->
+        <body pos="0.27 0.18 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱8-->
+        <body pos="0.45 0.18 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+
+        <!--柱9-->
+        <body pos="-0.09 0.36 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱10-->
+        <body pos="0.09 0.36 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱11-->
+        <body pos="0.27 0.36 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱12-->
+        <body pos="0.45 0.36 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+
+        <!--柱13-->
+        <body pos="-0.09 0.54 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱14-->
+        <body pos="0.09 0.54 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱15-->
+        <body pos="0.27 0.54 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+        <!--柱16-->
+        <body pos="0.45 0.54 0.037">
+            <body pos="0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 -0.0005">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--柱上赤蓋-->
+            <body pos="0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="-0.003375 -0.003375 0.0245">
+                <geom type="box" mass="0.01" size="0.002375 0.002375 0.0005" rgba="1 0 0 1"/>
+            </body>
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.002 0.002 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>

@@ -1,0 +1,80 @@
+<mujoco model="micromouse">
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="0 0 10" dir="0 0 -1"/>
+        <!-- <geom type="plane" size="0 0 0.18" rgba="0.7 0.7 0.1 1"/> -->
+        <!--<geom type="plane" size="0.7 0.7 .01" material="groundplane"/>-->
+        <!--<geom type="plane" size="0.7 0.7 .01"/>-->
+
+        <body pos="0 0.09 0.012" euler="0 0 90">
+            <freejoint />
+            <body name="torso">
+                <geom name="mein_body1" type="box" friction="0.0 0.0 0.0" size="0.05 0.03 0.0008" rgba="0.05 0.4 0.15 1" pos="0 0 0.002" mass="4.65e-3"/>
+                <geom name="mein_body_chip1" type="box" friction="0.0 0.0 0.0" size="0.00707 0.00707 0.0008" rgba="0.05 0.4 0.15 1" pos="0.04 0.03 0.002" euler="0 0 45" mass="4.65e-3"/>
+                <geom name="mein_body_chip2" type="box" friction="0.0 0.0 0.0" size="0.00707 0.00707 0.0008" rgba="0.05 0.4 0.15 1" pos="0.04 -0.03 0.002" euler="0 0 45" mass="4.65e-3"/>
+                <geom name="mein_body_chip3" type="box" friction="0.0 0.0 0.0" size="0.00707 0.00707 0.0008" rgba="0.05 0.4 0.15 1" pos="-0.04 0.03 0.002" euler="0 0 45" mass="4.65e-3"/>
+                <geom name="mein_body_chip4" type="box" friction="0.0 0.0 0.0" size="0.00707 0.00707 0.0008" rgba="0.05 0.4 0.15 1" pos="-0.04 -0.03 0.002" euler="0 0 45" mass="4.65e-3"/>
+                <geom name="mein_body4" type="box" friction="0.0 0.0 0.0" size="0.013 0.04 0.0008"  rgba="0.05 0.4 0.15 1" pos="-0.027 0 0.002" mass="4.65e-3"/>
+                <geom name="mein_body5" type="box" friction="0.0 0.0 0.0" size="0.013 0.04 0.0008"  rgba="0.05 0.4 0.15 1" pos="0.027 0 0.002" mass="4.65e-3"/>
+                <!--接触判定領域（この中に入ってるgeomが接触すると，センサ値としてその値を取得できる）-->
+                <site name = "hit_box1" type = "box" size = "0.02 0.043 0.0008" pos="0.032 0 0.002" rgba="1 1 0 0.0"/>
+                <site name = "hit_box2" type = "box" size = "0.02 0.043 0.0008" pos="-0.032 0 0.002" rgba="1 1 0 0.0"/>
+            </body>
+            
+            <site name="sensor_left_front" type="box" size="0.003 0.003 0.003" pos="0.031 0.036 0.01" zaxis="1 0 0.01" rgba=".5 1 .5 1"/>
+              <!-- zaxisの３つめ　0.1でちょい上向き -->
+            <site name="sensor_left_side" type="box" size="0.003 0.003 0.003" pos="0.043 0.016 0.01" zaxis="0.25 1 0" rgba=".5 1 .5 1"/>
+            <site name="sensor_right_front" type="box" size="0.003 0.003 0.003" pos="0.031 -0.036 0.01" zaxis="1 0 0.01" rgba=".5 1 .5 1"/>
+            <site name="sensor_right_side" type="box" size="0.003 0.003 0.003" pos="0.043 -0.016 0.01" zaxis="0.25 -1 0" rgba=".5 1 .5 1"/>
+            <!-- <site name = "hit_box" type = "box" size = "0.02 0.05 0.0005" pos="0.04 0 0.002" rgba=".5 .2 0 .3"/>
+            <site name = "hit_box2" type = "box" size = "0.02 0.05 0.0005" pos="-0.04 0 0.002" rgba=".5 .2 0 .3"/> -->
+            <site name="accerometer" type="box" size="0.001 0.001 0.001" pos="0 0 0"/>
+            <site name="gyro" type="box" size="0.001 0.001 0.001" pos="0 0 0"/>
+
+
+            <!-- <body name="left wheel" pos="-0.0 0.036 0.0117" zaxis="0 1 0"> -->
+             <body name="left wheel" pos="-0.0 0.036 0.0135" zaxis="0 1 0">
+                <joint name="left wheel joint" type="hinge" axis="0 0 1" limited="false" damping='5.4e-5' />
+
+                <geom type="cylinder" size="0.0135 0.0035" friction="1.0 0 0"  rgba=".3 .3 0.3 1" mass="50e-3"/>
+                <site type="box" size = "0.0012 0.008 0.004" rgba=".5 1 .5 1"/>
+            </body>
+            
+            <body name="right wheel" pos="-0.0 -0.036 0.0135" zaxis="0 1 0">
+                <joint name="right wheel joint" type="hinge" axis="0 0 1" limited="false" damping='5.4e-5' />
+                <geom type="cylinder" size="0.0135 0.0035" friction="1.0 0 0" mass="50e-3"/>
+                <site type="box" size = "0.0012 0.008 0.004" rgba=".5 1 .5 1"/>
+            </body>
+
+            <body name="motorbox1" pos="0 -0.018 0.0135" >
+                <geom type="box" size="0.0117 0.0135 0.0117" rgba="0.1 0.1 0.1 1" mass="50e-3"/>
+            </body>
+
+            <body name="motorbox2" pos="0 0.018 0.0135">
+                <geom type="box" size="0.0117 0.0135 0.0117" rgba="0.1 0.1 0.1 1" mass="50e-3"/>
+            </body>
+            
+            <!--トラッキングカメラを装着-->
+            <camera name="camera_name" mode="track" pos="-0.2 0 1" euler="0 -20 -90" fovy="60"/> <!--トラッキングカメラを装着-->
+        
+        </body>
+    </worldbody>
+
+    <actuator>
+        <!-- <motor name="right" joint="right wheel joint" gear="1.8e-3" ctrllimited="true" ctrlrange="-3 3"/> ctrlrangeで入力の値の範囲を決められる
+        <motor name="left" joint="left wheel joint" gear="1.8e-3" ctrllimited="true" ctrlrange="-3 3"/> -->
+        <motor name="right" joint="right wheel joint" gear="0.3e-2" ctrllimited="true" ctrlrange="-3 3"/> ctrlrangeで入力の値の範囲を決められる
+        <motor name="left"  joint="left wheel joint"  gear="0.3e-2" ctrllimited="true" ctrlrange="-3 3"/>
+    </actuator>
+
+    <sensor>
+        <rangefinder name="LF" site="sensor_left_front" cutoff="0.15"/>
+        <rangefinder name="LS" site="sensor_left_side" cutoff="0.15"/>
+        <rangefinder name="RF" site="sensor_right_front" cutoff="0.15"/>
+        <rangefinder name="RS" site="sensor_right_side" cutoff="0.15"/>
+        <touch name = "HB1" site = "hit_box1"/>
+        <touch name = "HB2" site = "hit_box2"/>
+        <accelerometer name="Accel" site="accerometer"/>
+        <gyro name="Gyro" site="gyro"/>
+    </sensor>
+
+</mujoco>
