@@ -41,31 +41,7 @@ wheel_r = 0.0135
 
 #Get ID
 #wheel_left_id = mujoco.mj_name2id(model, 3,'left wheel joint')
-#wheel_right_id = mujoco.mj_name2id(model, 3,'right wheel joint')
-#wheel_ang_left = data.qpos[7]
-#wheel_ang_right = data.qpos[8]
-#actuator_right_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_ACTUATOR, 'right')
-#actuator_left_id  = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_ACTUATOR, 'left')
-#lf_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, 'LF')
-#ls_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, 'LS')
-#rs_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, 'RS')
-#rf_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, 'RF')
-#vel_y_id = 1 
-#angle_id = 3
-
-#touch1_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, 'HB1')
-#touch2_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, 'HB2')
-#accel_id  = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, 'Accel')
-#gyro_id   = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, 'Gyro')
-
 #print('#Left Front Sensor ID',  lf_id)
-#print('#Left Side Sensor ID',   ls_id)
-#print('#Right Side Sensor ID',  rs_id)
-#print('#Right Front Sensor ID', rf_id)
-#print('#TOUCH1 ID', touch1_id)
-#print('#TOUCH2 ID', touch2_id)
-#print('#Accel ID', accel_id)
-#print('#Gyro ID',  gyro_id)
 
 #Main Loop
 now = 0.0
