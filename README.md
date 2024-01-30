@@ -1,7 +1,7 @@
 # Mujocoの練習のためのマイクロマウスシミュレーション
 
 迷路の中を走るロボットのシミュレーションです
-![シミュレーションの様子](etc/mouse_in_maze.gif)
+![シミュレーションの様子](etc/mouse_running_maze.gif)
 
 ## 実行する
 ### Mac
