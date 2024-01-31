@@ -1,0 +1,45 @@
+Wed Jan 31 21:27:47 2024
+ERROR: Load model error: XML parse error 14:
+Error=XML_ERROR_MISMATCHED_ELEMENT ErrorID=14 (0xe) Line number=791: XMLElement name=body
+
+
+Wed Jan 31 21:36:44 2024
+ERROR: Load model error: XML parse error 14:
+Error=XML_ERROR_MISMATCHED_ELEMENT ErrorID=14 (0xe) Line number=281: XMLElement name=body
+
+
+Wed Jan 31 21:49:51 2024
+ERROR: mj_stackAlloc: insufficient memory: max = 14680064, available = 14680040, requested = 20231160 (ne = 0, nf = 0, nefc = 0, ncon = 0)
+
+Wed Jan 31 21:51:59 2024
+ERROR: mj_stackAlloc: insufficient memory: max = 14680064, available = 2295952, requested = 10129500 (ne = 0, nf = 0, nefc = 0, ncon = 0)
+
+Wed Jan 31 21:56:57 2024
+WARNING: Pre-allocated visual geom buffer is full. Increase maxgeom above 2000. Time = 0.0180.
+
+Wed Jan 31 21:57:19 2024
+ERROR: mj_stackAlloc: insufficient memory: max = 14680064, available = 14680040, requested = 20231160 (ne = 0, nf = 0, nefc = 0, ncon = 0)
+
+Wed Jan 31 21:57:46 2024
+WARNING: Pre-allocated visual geom buffer is full. Increase maxgeom above 2000. Time = 0.0180.
+
+Wed Jan 31 22:00:33 2024
+ERROR: Load model error: XML Error: either 'memory' and 'njmax' attribute can be specified, not both
+Element 'size', line 3
+
+
+Wed Jan 31 22:01:07 2024
+WARNING: Pre-allocated visual geom buffer is full. Increase maxgeom above 2000. Time = 0.0180.
+
+Wed Jan 31 22:01:41 2024
+WARNING: Pre-allocated visual geom buffer is full. Increase maxgeom above 2000. Time = 0.0180.
+
+Wed Jan 31 22:02:32 2024
+WARNING: Pre-allocated visual geom buffer is full. Increase maxgeom above 2000. Time = 0.0180.
+
+Wed Jan 31 22:06:58 2024
+ERROR: mj_stackAlloc: insufficient memory: max = 14680064, available = 14680040, requested = 20231160 (ne = 0, nf = 0, nefc = 0, ncon = 0)
+
+Wed Jan 31 22:07:25 2024
+WARNING: Pre-allocated visual geom buffer is full. Increase maxgeom above 2000. Time = 0.0180.
+

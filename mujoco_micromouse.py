@@ -1,5 +1,5 @@
 import time
-
+import numpy as np
 import mujoco
 import mujoco.viewer
 
@@ -26,6 +26,14 @@ def get_gyro(model, data):
   gz = data.sensor('Gyro').data[2]
   return gx,gy,gz
 
+
+def get_odom(model, data):
+  odm_right = data.actuator('right').length[0]/gear
+  odm_left = data.actuator('left').length[0]/gear
+  vel_right = data.actuator('right').velocity[0]/gear
+  vel_left = data.actuator('left').velocity[0]/gear
+  return odm_right, odm_left, vel_right, vel_left
+
 paused = False
 def key_callback(keycode):
   if chr(keycode) == ' ':
@@ -38,6 +46,12 @@ data = mujoco.MjData(model)
 
 gear = 0.3e-2
 wheel_r = 0.0135
+wide = 0.072
+mx = 0.0
+my = 0.0
+psi = 0.0
+past_odom_right = 0.0
+past_odom_left = 0.0
 
 #Get ID
 #wheel_left_id = mujoco.mj_name2id(model, 3,'left wheel joint')
@@ -53,6 +67,7 @@ with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as vie
       lf, ls, rs, rf = get_distance(model, data)
       ax, ay, az = get_accel(model, data)
       gx, gy, gz = get_gyro(model, data)
+      now_odom_right, now_odom_left, velocoty_right, velocity_left = get_odom(model, data)
 
       #Control
       err = ls - rs
@@ -80,14 +95,26 @@ with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as vie
       now = data.time
       if now-past>0.01:
         past = now
+        
+        #odometory 
+        deff_odom_right = now_odom_right - past_odom_right
+        deff_odom_left = now_odom_left - past_odom_left
+        deff_length = (deff_odom_right + deff_odom_left)/2
+        mx = mx + deff_length * np.cos(psi)
+        my = my + deff_length * np.sin(psi)
+        psi = psi + (deff_odom_right - deff_odom_left)/wide
+
+        past_odom_right = now_odom_right
+        past_odom_left = now_odom_left
+
         viewer.sync()
         #Sensor Data Show
         #print(now, ax, ay, az, gx, gy, gz)
         #print(lf,ls,rs,rf)
         #print(data.sensordata)
         #print(data.sensor('Gyro').data[0])
-        print(now,\
-              data.actuator('right').length[0],   data.actuator('left').length[0],\
-              data.actuator('right').velocity[0], data.actuator('left').velocity[0],\
-              ax, ay, az, gx, gy, gz)
-      
+        #print(now,\
+        #      data.actuator('right').length[0],   data.actuator('left').length[0],\
+        #      data.actuator('right').velocity[0], data.actuator('left').velocity[0],\
+        #      ax, ay, az, gx, gy, gz)
+        print(now, mx, my, psi, deff_length)
