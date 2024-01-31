@@ -182,22 +182,176 @@
         </body>
 
         <!-- Wall 1-->
-        <body pos="0.09 0 0.037">
+        <body pos="0.09 0.0 0.037">
             <body pos="0 0 -0.0005">
                 <geom type="box" mass="0.01" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
             </body>
-            <!--柱上赤蓋-->
+            <!--壁上赤蓋-->
             <body pos="0 0 0.0245">
                 <geom type="box" mass="0.01" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
             </body>
         </body>
 
-        <!-- Wall 1-->
+        <!-- Wall 2-->
+        <body pos="0.27 0.0 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 3-->
+        <body pos="0.44999999999999996 0.0 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 4-->
+        <body pos="0.27 0.36 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 5-->
+        <body pos="0.09 0.54 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 6-->
+        <body pos="0.27 0.54 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 7-->
+        <body pos="0.44999999999999996 0.54 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.084 0.006 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 8-->
         <body pos="0.0 0.09 0.037">
             <body pos="0 0 -0.0005">
                 <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
             </body>
-            <!--柱上赤蓋-->
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 9-->
+        <body pos="0.18 0.09 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 10-->
+        <body pos="0.54 0.09 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 11-->
+        <body pos="0.0 0.27 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 12-->
+        <body pos="0.36 0.27 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 13-->
+        <body pos="0.54 0.27 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 14-->
+        <body pos="0.0 0.44999999999999996 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 15-->
+        <body pos="0.36 0.44999999999999996 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
+            <body pos="0 0 0.0245">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
+            </body>
+        </body>
+
+        <!-- Wall 16-->
+        <body pos="0.54 0.44999999999999996 0.037">
+            <body pos="0 0 -0.0005">
+                <geom type="box" mass="0.01" size="0.006 0.084 0.0245" rgba="1 1 1 1"/>
+            </body>
+            <!--壁上赤蓋-->
             <body pos="0 0 0.0245">
                 <geom type="box" mass="0.01" size="0.006 0.084 0.0005" rgba="1 0 0 1"/>
             </body>

@@ -71,8 +71,9 @@ with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as vie
 
       #Control
       err = ls - rs
-      velocity = 0.05
-      k= 0.6
+      velocity = 0.09
+      k= 0.9
+      k2 = 1.5
       if turn_flag==1 or (lf<0.05 and rf <0.05):
         turn_flag = 1
         right_mot =  0.06
@@ -81,8 +82,8 @@ with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as vie
           turn_flag = 0
         #print('Turn')
       else:
-        right_mot = velocity + k * err
-        left_mot =  velocity - k * err
+        right_mot = velocity + k * err + k2*(0.15 - rf)
+        left_mot =  velocity - k * err + k2*(0.15 - lf)
         #print('Foward')
 
       #Move
@@ -117,4 +118,4 @@ with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as vie
         #      data.actuator('right').length[0],   data.actuator('left').length[0],\
         #      data.actuator('right').velocity[0], data.actuator('left').velocity[0],\
         #      ax, ay, az, gx, gy, gz)
-        print(now, mx, my, psi, deff_length)
+        #print(now, mx, my, psi, deff_length)
