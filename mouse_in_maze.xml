@@ -1,8 +1,8 @@
 <mujoco>
 <compiler angle="degree" coordinate="local" inertiafromgeom="true" />
-    <option integrator="RK4" timestep="0.001" />
+    <option integrator="RK4" timestep="0.0001" />
 
     <include file="./micromouse.xml"/>
-    <include file="./maze16x16w.xml"/>
+    <include file="./maze3x3.xml"/>
 
 </mujoco>
