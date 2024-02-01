@@ -43,3 +43,18 @@ ERROR: mj_stackAlloc: insufficient memory: max = 14680064, available = 14680040,
 Wed Jan 31 22:07:25 2024
 WARNING: Pre-allocated visual geom buffer is full. Increase maxgeom above 2000. Time = 0.0180.
 
+Thu Feb  1 20:36:50 2024
+WARNING: mju_openResource: unknown file 'maze2x16.xmp'
+
+Thu Feb  1 20:36:50 2024
+ERROR: Load model error: mjParseXML: could not open file 'maze2x16.xmp'
+
+Thu Feb  1 20:42:25 2024
+ERROR: Load model error: XML Error: invalid keyword: 'plate'
+Element 'geom', line 5
+
+
+Thu Feb  1 21:14:29 2024
+ERROR: Load model error: Error: plane size(3) must be positive in object '' (id = 0)
+Object name = , id = 0, line = 5, column = -1
+

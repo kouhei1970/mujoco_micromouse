@@ -71,7 +71,7 @@ with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as vie
 
       #Control
       err = ls - rs
-      velocity = 0.09
+      velocity = 1
       k= 4
       k2 = 2
       if turn_flag==1 or (lf<0.05 and rf <0.05):
