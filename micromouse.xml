@@ -20,10 +20,10 @@
                 <site name = "hit_box2" type = "box" size = "0.02 0.043 0.0008" pos="-0.032 0 0.002" rgba="1 1 0 0.0"/>
             </body>
             
-            <site name="sensor_left_front" type="box" size="0.003 0.003 0.003" pos="0.031 0.036 0.01" zaxis="1 0 0.01" rgba=".5 1 .5 1"/>
-              <!-- zaxisの３つめ　0.1でちょい上向き -->
+            <!-- zaxisの３つめ　0.1でちょい上向き -->
+            <site name="sensor_left_front" type="box" size="0.003 0.003 0.003" pos="0.031 0.036 0.01" zaxis="1 0 -0.01" rgba=".5 1 .5 1"/>
             <site name="sensor_left_side" type="box" size="0.003 0.003 0.003" pos="0.043 0.016 0.01" zaxis="0.25 1 0" rgba=".5 1 .5 1"/>
-            <site name="sensor_right_front" type="box" size="0.003 0.003 0.003" pos="0.031 -0.036 0.01" zaxis="1 0 0.01" rgba=".5 1 .5 1"/>
+            <site name="sensor_right_front" type="box" size="0.003 0.003 0.003" pos="0.031 -0.036 0.01" zaxis="1 0 -0.01" rgba=".5 1 .5 1"/>
             <site name="sensor_right_side" type="box" size="0.003 0.003 0.003" pos="0.043 -0.016 0.01" zaxis="0.25 -1 0" rgba=".5 1 .5 1"/>
             <!-- <site name = "hit_box" type = "box" size = "0.02 0.05 0.0005" pos="0.04 0 0.002" rgba=".5 .2 0 .3"/>
             <site name = "hit_box2" type = "box" size = "0.02 0.05 0.0005" pos="-0.04 0 0.002" rgba=".5 .2 0 .3"/> -->
