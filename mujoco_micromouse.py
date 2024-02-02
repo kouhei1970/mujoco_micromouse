@@ -61,6 +61,8 @@ past_odom_left = 0.0
 now = 0.0
 past = 0.0
 turn_flag = 0
+err = 0
+olderr = 0
 with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as viewer:
   while viewer.is_running():
     if not paused:
@@ -70,11 +72,13 @@ with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as vie
       now_odom_right, now_odom_left, velocoty_right, velocity_left = get_odom(model, data)
 
       #Control
+      olderr = err
       err = ls - rs
       velocity = 1
-      k= 15
-      k2 = 25
-      if turn_flag==1 or (lf<0.05 and rf <0.05):
+      k= 28
+      kd =2.0
+      k2 = 15
+      if turn_flag==1 or (lf<0.07 and rf <0.07):
         turn_flag = 1
         right_mot =  0.06
         left_mot  = -0.06
@@ -82,8 +86,8 @@ with mujoco.viewer.launch_passive(model, data, key_callback=key_callback) as vie
           turn_flag = 0
         #print('Turn')
       else:
-        right_mot = velocity + k * err + k2*(0.15 - rf)
-        left_mot =  velocity - k * err + k2*(0.15 - lf)
+        right_mot = velocity + k * err + kd*1000*(err - olderr) + k2*(0.15 - rf)
+        left_mot =  velocity - k * err - kd*1000*(err - olderr) + k2*(0.15 - lf)
         #print('Foward')
 
       #Move
