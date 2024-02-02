@@ -3,6 +3,6 @@
     <option integrator="RK4" timestep="0.001" />
 
     <include file="./micromouse.xml"/>
-    <include file="./maze16x16.xml"/>
+    <include file="./maze16x1.xml"/>
 
 </mujoco>
