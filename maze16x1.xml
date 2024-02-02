@@ -2,7 +2,7 @@
     <worldbody>
         <!--ベース板-->
         <body name="base_plate" pos="0.09 1.44 0.012">
-        <geom type="plane" mass="0.1" size="0.096 1.446 0.006" rgba="0.2 0.2 0.2 1" friction="0.0 0.0 0.0"/>
+        <geom type="plane" mass="0.1" size="0.096 1.446 0.09" rgba="0.2 0.2 0.2 1" friction="0.0 0.0 0.0"/>
         </body>
 
         <!-- Column 1-->
