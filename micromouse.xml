@@ -37,7 +37,7 @@
 
 
             <!-- <body name="left wheel" pos="-0.0 0.036 0.0117" zaxis="0 1 0"> -->
-             <body name="left wheel" pos="-0.0 0.036 0.0135" zaxis="0 1 0">
+            <body name="left wheel" pos="-0.0 0.036 0.0135" zaxis="0 1 0">
                 <joint name="left wheel joint" type="hinge" axis="0 0 1" limited="false" damping='5.4e-5' />
 
                 <geom type="cylinder" size="0.0135 0.0035" friction="1.0 0 0"  rgba=".3 .3 0.3 1" mass="50e-3"/>

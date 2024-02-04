@@ -1,6 +1,0 @@
-Wed Jan 31 14:54:54 2024
-WARNING: mju_openResource: unknown file 'maze.xml'
-
-Wed Jan 31 14:54:54 2024
-ERROR: Load model error: mjParseXML: could not open file 'maze.xml'
-

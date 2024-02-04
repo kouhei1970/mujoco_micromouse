@@ -1,0 +1,29 @@
+<mujoco model="motor_test">
+    <!--<compiler angle="degree" coordinate="local" inertiafromgeom="true" />-->
+    <option integrator="RK4" timestep="1e-5" />
+
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="0 0 10" dir="0 0 -1"/>
+        <body name="stand" pos="0 0 0" euler="0 0 0">
+            <geom type="box" size="0.05 0.05 0.0015" rgba="0 1 1 1" pos="0 0 0" mass="1.0"/>
+        </body>
+
+        <body name="plate" pos="0 0 0.005" euler="0 0 0">
+            <joint name="shaft" type="hinge" axis="0 0 1" limited="false" damping='0.1' />            
+            <geom type="box" size="0.025 0.005 0.0005" rgba="1 1 0 1" pos="0 0 0" mass="1.0"/>
+            <body>
+                <geom type="box" size="0.005 0.005 0.001" pos="0 0 0.0015"/>
+                <site name="sensor" type="box" size="0.005 0.005 0.001" pos="0 0 0.0015"/>
+            </body>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor name="motor"  joint="shaft"  gear="1.0" ctrllimited="true" ctrlrange="-1 1"/>
+    </actuator>
+
+    <sensor>
+        <torque name="sensor" site="sensor"/>
+    </sensor>
+
+</mujoco>

@@ -1,4 +1,4 @@
-<mujoco model="micromouse">
+<mujoco model="poly_test">
     <asset>
         <mesh name="poly1" vertex="0 0 0  0 1 0  1 0 0  1 1 0  0.5 1.5 0  0 0 0.1  0 1 0.1  1 0 0.1  1 1 0.1  0.5 1.5 0.1"/>
     </asset>
@@ -11,15 +11,8 @@
 
     <worldbody>
         <light diffuse=".5 .5 .5" pos="0 0 10" dir="0 0 -1"/>
-        <!-- <geom type="plane" size="0 0 0.18" rgba="0.7 0.7 0.1 1"/> -->
-        <!--<geom type="plane" size="0.7 0.7 .01" material="groundplane"/>-->
-        <!--<geom type="plane" size="0.7 0.7 .01"/>-->
-        <!--
-        <body name="polytest1" pos="3 0 0" euler="0 0 0">
-            <geom type="mesh" mesh="poly1" rgba="1 1 0 1" pos="0 0 0" mass="1.0"/>
-        </body>-->
-        <body name="origin" pos="0 0 0" euler="0 0 0">
-            <geom type="box" size="0.005 0.005 0.0008" rgba="1 1 0 1" pos="0 0 0" mass="1.0"/>
+        <body name="poly1" pos="0 0 0" euler="0 0 0">
+            <geom type="mesh" mesh="poly1" size="0.005 0.005 0.0008" rgba="1 1 0 1" pos="0 0 0" mass="1.0"/>
         </body>
 
         <body name="polytest2" pos="0.005 -0.005 0" euler="0 0 0">
