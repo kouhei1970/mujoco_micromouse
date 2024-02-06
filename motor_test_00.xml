@@ -1,0 +1,23 @@
+<mujoco model="motor_test">
+    <option integrator="RK4" timestep="1e-5" />
+    <worldbody>
+        <body name="base" pos="0 0 0">
+            <!-- 回転する円盤 -->
+            <body name="disk" pos="0 0 1">
+                <joint name="disk_joint" type="hinge" axis="0 0 1" limited="false"/>
+                <geom type="cylinder" size="0.1 0.02" rgba="0.5 0.5 0.5 1"/>
+                <site name="torque_sensor" type="cylinder" size="0.01 0.025" rgba="1 0 0 1"/>
+                <site name="maker" type="cylinder" size="0.01 0.0201" pos="0.07 0 0" rgba="1 1 0 1"/>
+
+            </body>
+        </body>
+    </worldbody>
+    <actuator>
+        <!-- アクチュエーター定義 -->
+        <motor name="disk_motor" joint="disk_joint" gear="1"/>
+    </actuator>
+    <sensor>
+        <!-- トルクセンサー定義 -->
+        <torque name="disk_torque_sensor" site="torque_sensor"/>
+    </sensor>
+</mujoco>
